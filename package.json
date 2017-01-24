@@ -1,0 +1,21 @@
+{
+  "name": "holidays-calendar",
+  "version": "1.0.0",
+  "description": "Library for retrieving the holidays' calendar of a locale.",
+  "main": "dist/HolidaysCalendar.js",
+  "scripts": {
+    "build": "gulp build",
+    "test": "mocha src/HolidaysCalendar.test.js"
+  },
+  "author": "Walter Carrer Neto <carrer@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "csv-parse": "^1.1.10",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-uglify": "^2.0.0",
+    "mocha": "^3.2.0"
+  }
+}
