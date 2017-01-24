@@ -38,15 +38,15 @@ console.log('The total number of holidays in 2020 is '+HolidaysCalendar.Year(202
 Inserts a new calendar into the container.
 **locale**: String, required. Locale identificator.
 **data**: Object, required. Must respect the follow pattern:
-```json
+```
 {
-    YEAR: {
-        total: TOTAL_HOLIDAYS_IN_YEAR,
-        months: {
-            MONTH: {
-                total: TOTAL_HOLIDAYS_IN_MONTH,
-                days: {
-                    DAY: HOLIDAY,
+    "YEAR": {
+        "total": "TOTAL_HOLIDAYS_IN_YEAR",
+        "months": {
+            "MONTH": {
+                "total": "TOTAL_HOLIDAYS_IN_MONTH",
+                "days": {
+                    "DAY": "HOLIDAY",
                     ...
                 },
             },
@@ -65,7 +65,7 @@ Example:
             "1": {
                 "total": 1,
                 "days": {
-                    1": "New Years Day
+                    "1": "New Years Day"
                 }
             }
         }
@@ -74,16 +74,23 @@ Example:
 ```
 
 ### Locale(locale)
+
 Sets/Gets which calendar is being used, identified by its respective locale.
+
 **locale**: String, optional. If informed, sets the library to use the locale's calendar. If omitted, retrives the locale being used.
+
 ***return***: Mixed: *String* when called with no parameters; *Nothing* when setting the locale.
 
 ### Year(year)
+
 Retrieves information about holidays in year.
+
 **year**: integer, required. Year reference.
+
 ***return***: Mixed. *Object* with structure: ```{total: integer, months: array of integer}``` when there are holidays within that year; *False* when there are no holidays in the given year.
 
 #### Example
+
 ```bash
  var calendar = require("holidays-calendar-brazil");
  var data = calendar.Year(2020);
@@ -91,11 +98,17 @@ Retrieves information about holidays in year.
 ```
 
 ### Month(year, month)
+
 Retrieves information about holidays in a specific month.
+
 **year**: integer, required. Year reference.
+
 **month**: integer, required. Month reference (January=1).
+
 ***return***: Mixed. *Object* with structure: ```{total: integer, days: array of integer}``` when there are holidays within that year; *False* when there are no holidays in the given month.
+
 #### Example
+
 ```bash
  var calendar = require("holidays-calendar-brazil");
  var data = calendar.Month(2020, 2);
@@ -103,11 +116,17 @@ Retrieves information about holidays in a specific month.
 ```
 
 ### Day(year, month, day)
+
 Retrieves information about a holiday in a specific date.
+
 **year**: integer, required. Year reference.
+
 **month**: integer, required. Month reference (January=1).
+
 **day**: integer, required. Day reference.
+
 ***return***: Mixed. *String* representing the holiday name if the given date corresponds to a holiday according to the calendar in use; *False* when the date isn't a holiday.
+
 #### Example
 ```bash
  var calendar = require("holidays-calendar-brazil");
