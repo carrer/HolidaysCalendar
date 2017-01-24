@@ -1,25 +1,32 @@
-var calendar = false,
-    data = {};
-if (typeof module !== 'undefined' && this.module !== module)
-{
-    calendar = require('./HolidaysCalendar');
-}
+(function() {
+    'use strict';
 
-if (calendar)
-{
+     var calendar = false,
+        data = {};
+
+    if (typeof module !== 'undefined')
+        calendar = require('holidays-calendar');
+    else
+    {
+        if (typeof HolidaysCalendar == 'undefined')
+            throw 'You need to import "HolidaysCalendar" library.';
+        calendar = HolidaysCalendar;
+    }
+
     calendar.AddCalendar('locale', data);
     calendar.Locale('locale');
-}
-else
-{
-    HolidaysCalendar.AddCalendar('locale', data);
-    HolidaysCalendar.Locale('locale');
-}
-
-if (typeof module !== 'undefined' && this.module !== module)
-    module.exports = {
-        Year: calendar ? calendar.Year : HolidaysCalendar.Year,
-        Month: calendar ? calendar.Month : HolidaysCalendar.Month,
-        Day: calendar ? calendar.Day : HolidaysCalendar.Day,
-        Locale: calendar ? calendar.Locale : HolidaysCalendar.Locale
+    function Locale()
+    {
+        return calendar.Locale();
     }
+
+
+    if (typeof module !== 'undefined')
+        module.exports = {
+            Year: calendar.Year,
+            Month: calendar.Month,
+            Day: calendar.Day,
+            Locale: Locale
+        }
+
+})();

@@ -82,8 +82,8 @@ gulp.task('csv2js', function(){
                     day = type == 'br' ? parts[1] * 1 : parts[3] * 1,
                     date = new Date(year, month-1, day);
 
-                if (date.getDay() != 0 && date.getDay() != 6)
-                {
+                // if (date.getDay() != 0 && date.getDay() != 6)
+                // {
                     if ( typeof csvData[year] == 'undefined' )
                         csvData[year] = {
                             months: {},
@@ -99,7 +99,7 @@ gulp.task('csv2js', function(){
                     csvData[year].total++;
                     csvData[year].months[month].total++;
                     csvData[year].months[month].days[day] = csvrow[1];
-                }
+                // }
             }
 
         })

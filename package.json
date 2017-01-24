@@ -1,6 +1,6 @@
 {
   "name": "holidays-calendar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Library for retrieving the holidays' calendar of a locale.",
   "main": "dist/HolidaysCalendar.js",
   "scripts": {

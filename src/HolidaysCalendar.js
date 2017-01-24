@@ -4,19 +4,20 @@ var HolidaysCalendar = (function(){
         methods = {},
         locale = false;
 
-    verifyDefault = function()
-    {
-        if (!locale)
-            for(var calendar in calendars)
-            {
-                locale = calendar;
-                return;
-            }
-    }
-
     methods.AddCalendar = function(local, data)
     {
         calendars[local] = data;
+        var number = 0,
+            last;
+        
+        for(var l in calendars)
+        {
+            number++;
+            last = l;
+        }
+
+        if (number == 1) // there's only one calendar, so let's use it
+            locale = last;
     }
 
     methods.Locale = function(local)
@@ -32,7 +33,6 @@ var HolidaysCalendar = (function(){
 
     methods.Year = function(year)
     {
-        verifyDefault();
         if (!locale)
             return false;
 
@@ -53,7 +53,7 @@ var HolidaysCalendar = (function(){
 
     methods.Month = function(year, month)
     {
-        verifyDefault();
+
         if (!locale)
             return false;
 
@@ -74,7 +74,7 @@ var HolidaysCalendar = (function(){
 
     methods.Day = function(year, month, day)
     {
-        verifyDefault();
+
         if (!locale)
             return false;
 
