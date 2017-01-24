@@ -1,11 +1,15 @@
 {
   "name": "holidays-calendar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library for retrieving the holidays' calendar of a locale.",
   "main": "dist/HolidaysCalendar.js",
   "scripts": {
     "build": "gulp build",
     "test": "mocha src/HolidaysCalendar.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carrer/HolidaysCalendar.git"
   },
   "author": "Walter Carrer Neto <carrer@gmail.com>",
   "license": "MIT",
